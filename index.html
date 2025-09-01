@@ -1,0 +1,176 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Storage, Demurrage and Detention Calculator for Port Line Equipment</title>
+    <link rel="icon" type="image/png" href="favicon-96x96.png" sizes="96x96">
+    <link rel="icon" type="image/svg+xml" href="favicon.svg">
+    <link rel="shortcut icon" href="favicon.ico">
+    <link rel="apple-touch-icon" sizes="180x180" href="apple-touch-icon.png">
+    <link rel="manifest" href="site.webmanifest">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;600;700&family=Raleway:wght@500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <header>
+        <div class="header-container">
+            <img src="logo-left.png" alt="Company logo" class="header-logo">
+            <h1>Storage, Demurrage and Detention Calculator for Port Line Equipment</h1>
+            <div class="header-images">
+                <img src="image-right-1.png" alt="Decorate image" class="header-image">
+            </div>
+        </div>
+    </header>
+
+    <main class="main-container">
+        <div class="calculator">
+            <div class="calculator-header">
+                <h2>Container storage</h2>
+            </div>
+            <div class="calculator-body">
+                <div class="input-group">
+                    <label for="storage-port">Port:</label>
+                    <select id="storage-port">
+                        <option value="novorossiysk">Novorossiysk (NUTEP)</option>
+                        <option value="kaliningrad">Kaliningrad (Baltiysk)</option>
+                        <option value="spb">Saint-Petersburg (CTSP)</option>
+                        <option value="tmrp">Saint-Petersburg (TMRP)</option>
+                        <option value="pkt">Saint-Petersburg (FCT&PLP)</option>
+                    </select>
+                </div>
+
+                <div class="input-group" id="storage-terminal-group" style="display: none;">
+                    <label for="storage-terminal">Terminal:</label>
+                    <select id="storage-terminal"></select>
+                </div>
+
+                <div class="input-group">
+                    <label for="storage-container-type">Container Type:</label>
+                    <select id="storage-container-type"></select>
+                </div>
+
+                <div class="input-group">
+                    <label for="unload-date-storage">Date of Discharging:</label>
+                    <input type="date" id="unload-date-storage" required>
+                </div>
+
+                <div class="input-group">
+                    <label for="pickup-date">Date of Removal:</label>
+                    <input type="date" id="pickup-date" required>
+                </div>
+                
+                <div class="input-group">
+                    <label class="checkbox-label">
+                        <input type="checkbox" id="special-conditions-storage"> Special conditions
+                    </label>
+                </div>
+
+                <div class="input-group" id="free-days-storage-group" style="display: none;">
+                    <label for="free-days-storage">Number of days of free period:</label>
+                    <input type="number" id="free-days-storage" min="0" value="0">
+                </div>
+                
+                <button id="calculate-storage-btn">CALCULATE</button>
+                <div class="demurrage-note">*Rates for the FCT&PLP terminal are available only under a contract with "HUB SHIPPING"</div>
+                
+                <div class="result">
+                    <h3>Result:</h3>
+                    <div id="storage-details"></div>
+                    <p class="total-cost" id="storage-total">Total: 0 ₽</p>
+                </div>
+            </div>
+        </div>
+
+        <div class="calculator">
+    <div class="calculator-header">
+        <h2>Demurrage and Detention at port (USD)</h2>
+    </div>
+    <div class="calculator-body">
+        <div class="input-group">
+            <label for="demurrage-port">Port:</label>
+            <select id="demurrage-port">
+                <option value="novorossiysk">Novorossiysk</option>
+                <option value="kaliningrad">Kaliningrad</option>
+                <option value="spb">Saint-Petersburg</option>
+                <option value="vladivostok">Vladivostok</option>
+                <option value="vostochny">Vrangel Bay</option>
+            </select>
+        </div>
+
+        <div class="input-group" id="demurrage-terminal-group" style="display: none;">
+            <label for="demurrage-terminal">Terminal:</label>
+            <select id="demurrage-terminal"></select>
+        </div>
+
+        <div class="input-group">
+            <label for="demurrage-container-type">Container Type:</label>
+            <select id="demurrage-container-type"></select>
+        </div>
+
+        <div class="input-group" id="location-group">
+            <label for="container-location">Container drop-off location:</label>
+            <select id="container-location">
+                <option value="novorossiysk">Novorossiysk</option>
+                <option value="rostov">Rostov-on-Don</option>
+                <option value="moscow">Moscow</option>
+                <option value="spb">Saint-Petersburg</option>
+                <option value="tolyatti">Togliatti</option>
+                <option value="samara">Samara</option>
+                <option value="ekaterinburg">Yekaterinburg</option>
+                <option value="novosibirsk">Novosibirsk</option>
+                <option value="krasnoyarsk">Krasnoyarsk</option>
+                <option value="irkutsk">Irkutsk</option>
+                <option value="kaliningrad">Kaliningrad</option>
+            </select>
+        </div>
+        
+        <div class="input-group">
+            <label for="unload-date-demurrage">Date of discharging:</label>
+            <input type="date" id="unload-date-demurrage" required>
+        </div>
+
+        <div class="input-group">
+            <label for="return-date">Date of empty container return:</label>
+            <input type="date" id="return-date" required>
+        </div>
+        
+        <div class="input-group">
+            <label class="checkbox-label">
+                <input type="checkbox" id="special-conditions-demurrage"> Special Conditions
+            </label>
+        </div>
+
+        <div class="input-group" id="free-days-demurrage-group" style="display: none;">
+            <label for="free-days-demurrage">Number of days of free period:</label>
+            <input type="number" id="free-days-demurrage" min="0" value="0">
+        </div>
+        
+        <button id="calculate-demurrage-btn">CALCULATE</button>
+        
+        <div class="result">
+            <h3>Result:</h3>
+            <div id="demurrage-details"></div>
+            <p class="total-cost" id="demurrage-total">Total: 0 USD</p>
+        </div>
+    </div>
+</div>
+    </main>
+
+    <footer>
+        <div class="footer-container">
+            <p class="footer-notice">Rates are not a public offer</p>
+        </div>
+    </footer>
+
+    <script src="script.js"></script>
+</body>
+</html>
+
+
+
+
+
+
