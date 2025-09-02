@@ -58,8 +58,8 @@ const storageRates = {
             { days: "1-5", rate: 0 },
             { days: "6-8", rate: 1500 },
             { days: "9-11", rate: 2000 },
-            { days: "12-14", rate: 3600 },
-            { days: "15-999", rate: 5450 }
+            { days: "12-14", rate: 3000 },
+            { days: "15-999", rate: 4500 }
         ],
         "40dc": [
             { days: "1-5", rate: 0 },
@@ -1144,6 +1144,7 @@ document.addEventListener('DOMContentLoaded', () => {
      document.getElementById('calculate-storage-btn').addEventListener('click', calculateStorage);
      document.getElementById('calculate-demurrage-btn').addEventListener('click', calculateDemurrage);
 });
+
 
 
 
