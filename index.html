@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Storage, Demurrage and Detention Calculator for Port Line Equipment</title>
+    <title>Import Storage and Combined Demurrage and Detention Calculator</title>
     <link rel="icon" type="image/png" href="favicon-96x96.png" sizes="96x96">
     <link rel="icon" type="image/svg+xml" href="favicon.svg">
     <link rel="shortcut icon" href="favicon.ico">
@@ -18,7 +18,7 @@
     <header>
         <div class="header-container">
             <img src="logo-left.png" alt="Company logo" class="header-logo">
-            <h1>Storage, Demurrage and Detention Calculator for Port Line Equipment</h1>
+            <h1>Import Storage and Combined Demurrage and Detention Calculator</h1>
             <div class="header-images">
                 <img src="image-right-1.png" alt="Decorate image" class="header-image">
             </div>
@@ -28,11 +28,11 @@
     <main class="main-container">
         <div class="calculator">
             <div class="calculator-header">
-                <h2>Container storage</h2>
+                <h2>Organization of container storage</h2>
             </div>
             <div class="calculator-body">
                 <div class="input-group">
-                    <label for="storage-port">Port:</label>
+                    <label for="storage-port">Port of Discharge:</label>
                     <select id="storage-port">
                         <option value="nutep">Novorossiysk (NUTEP)</option>\
                         <option value="nle">Novorossiysk (NLE)</option>
@@ -54,28 +54,28 @@
                 </div>
 
                 <div class="input-group">
-                    <label for="unload-date-storage">Date of Discharging:</label>
+                    <label for="unload-date-storage">Port Discharge Date:</label>
                     <input type="date" id="unload-date-storage" required>
                 </div>
 
                 <div class="input-group">
-                    <label for="pickup-date">Date of Removal:</label>
+                    <label for="pickup-date">Port gate-out date:</label>
                     <input type="date" id="pickup-date" required>
                 </div>
                 
                 <div class="input-group">
                     <label class="checkbox-label">
-                        <input type="checkbox" id="special-conditions-storage"> Special conditions
+                        <input type="checkbox" id="special-conditions-storage"> Special terms if applicable
                     </label>
                 </div>
 
                 <div class="input-group" id="free-days-storage-group" style="display: none;">
-                    <label for="free-days-storage">Number of days of free period:</label>
+                    <label for="free-days-storage">Freetime:</label>
                     <input type="number" id="free-days-storage" min="0" value="0">
                 </div>
                 
                 <button id="calculate-storage-btn">CALCULATE</button>
-                <div class="demurrage-note">*Rates for the FCT&PLP terminal are available only under a contract with "HUB SHIPPING"</div>
+                <div class="demurrage-note">*FCT\PLP storage tariffs under carrier's agreement with the terminal</div>
                 
                 <div class="result">
                     <h3>Result:</h3>
@@ -87,11 +87,11 @@
 
         <div class="calculator">
     <div class="calculator-header">
-        <h2>Demurrage and Detention at port (USD)</h2>
+        <h2>Combined Demurrage and Detention</h2>
     </div>
     <div class="calculator-body">
         <div class="input-group">
-            <label for="demurrage-port">Port:</label>
+            <label for="demurrage-port">Port of Discharge:</label>
             <select id="demurrage-port">
                 <option value="novorossiysk">Novorossiysk</option>
                 <option value="kaliningrad">Kaliningrad</option>
@@ -112,7 +112,7 @@
         </div>
 
         <div class="input-group" id="location-group">
-            <label for="container-location">Container drop-off location:</label>
+            <label for="container-location">Drop-off location:</label>
             <select id="container-location">
                 <option value="novorossiysk">Novorossiysk</option>
                 <option value="rostov">Rostov-on-Don</option>
@@ -129,23 +129,23 @@
         </div>
         
         <div class="input-group">
-            <label for="unload-date-demurrage">Date of discharging:</label>
+            <label for="unload-date-demurrage">Port Discharge Date:</label>
             <input type="date" id="unload-date-demurrage" required>
         </div>
 
         <div class="input-group">
-            <label for="return-date">Date of empty container return:</label>
+            <label for="return-date">Drop-off date:</label>
             <input type="date" id="return-date" required>
         </div>
         
         <div class="input-group">
             <label class="checkbox-label">
-                <input type="checkbox" id="special-conditions-demurrage"> Special Conditions
+                <input type="checkbox" id="special-conditions-demurrage"> Special terms if applicable
             </label>
         </div>
 
         <div class="input-group" id="free-days-demurrage-group" style="display: none;">
-            <label for="free-days-demurrage">Number of days of free period:</label>
+            <label for="free-days-demurrage">Freetime:</label>
             <input type="number" id="free-days-demurrage" min="0" value="0">
         </div>
         
@@ -169,6 +169,7 @@
     <script src="script.js"></script>
 </body>
 </html>
+
 
 
 
