@@ -1004,7 +1004,7 @@ function calculateStorage() {
         }
         
         totalCost += dailyRate;
-        detailsHTML += `<li>День ${day}: ${dailyRate.toLocaleString()} ${currency}</li>`;
+        detailsHTML += `<li>Day ${day}: ${dailyRate.toLocaleString()} ${currency}</li>`;
     }
     
     detailsHTML += "</ul>";
@@ -1135,7 +1135,7 @@ function calculateDemurrage() {
         }
         
         totalCost += dailyRate;
-        detailsHTML += `<li>День ${day}: ${dailyRate} USD</li>`;
+        detailsHTML += `<li>Day ${day}: ${dailyRate} USD</li>`;
     }
     
     detailsHTML += "</ul>";
@@ -1199,6 +1199,7 @@ document.addEventListener('DOMContentLoaded', () => {
      document.getElementById('calculate-storage-btn').addEventListener('click', calculateStorage);
      document.getElementById('calculate-demurrage-btn').addEventListener('click', calculateDemurrage);
 });
+
 
 
 
